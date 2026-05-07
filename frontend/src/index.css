@@ -1,0 +1,105 @@
+/* ===== GeoAjuda PB — Design System ===== */
+:root {
+  --azul-pb:     #0053a0;
+  --azul-light:  #1a75d2;
+  --verde-alerta:#00a878;
+  --amarelo:     #f5a623;
+  --vermelho:    #e03e3e;
+  --cinza-bg:    #f4f6fa;
+  --cinza-card:  #ffffff;
+  --cinza-borda: #dde3ee;
+  --texto:       #1a1f36;
+  --texto-suave: #6b7a9d;
+  --sombra:      0 2px 12px rgba(0,83,160,0.10);
+  --raio:        12px;
+
+  /* Níveis de risco */
+  --cor-baixo:   #00a878;
+  --cor-medio:   #f5a623;
+  --cor-alto:    #e07b3e;
+  --cor-critico: #e03e3e;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--cinza-bg);
+  color: var(--texto);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+h1, h2, h3 { font-family: 'Syne', sans-serif; }
+
+button {
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  transition: all 0.18s ease;
+}
+
+button.btn-primary {
+  background: var(--azul-pb);
+  color: white;
+}
+button.btn-primary:hover { background: var(--azul-light); transform: translateY(-1px); }
+
+button.btn-danger {
+  background: var(--vermelho);
+  color: white;
+}
+
+input, select, textarea {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.9rem;
+  border: 1.5px solid var(--cinza-borda);
+  border-radius: 8px;
+  padding: 9px 12px;
+  width: 100%;
+  background: #fff;
+  color: var(--texto);
+  transition: border-color 0.15s;
+}
+input:focus, select:focus, textarea:focus {
+  outline: none;
+  border-color: var(--azul-pb);
+}
+
+label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--texto-suave);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 0.76rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.badge-baixo   { background: #e6f7f2; color: var(--cor-baixo); }
+.badge-medio   { background: #fff7e6; color: var(--cor-medio); }
+.badge-alto    { background: #fff0e6; color: var(--cor-alto); }
+.badge-critico { background: #fce8e8; color: var(--cor-critico); }
+
+/* Leaflet override */
+.leaflet-container { border-radius: var(--raio); }
+.leaflet-popup-content-wrapper {
+  border-radius: 10px !important;
+  box-shadow: var(--sombra) !important;
+  font-family: 'DM Sans', sans-serif !important;
+}
