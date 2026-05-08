@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form'
 import { ocorrenciaService } from '../services/api'
 import { useGeolocation } from '../hooks/useGeolocation'
 import AlertaChuva from './AlertaChuva'
+import UploadFoto from './UploadFoto'
 import { MapPin, Crosshair, ChevronDown, ChevronUp, CheckCircle2, X, Loader2 } from 'lucide-react'
 
 const MUNICIPIOS_PB = [
@@ -206,6 +207,9 @@ export default function FormularioOcorrencia({ locSelecionada, onLocCapturada, o
           Descrições detalhadas aumentam a confiabilidade do relato
         </span>
       </div>
+
+      {/* Upload de Foto */}
+      <UploadFoto onUpload={url => setValue('fotoUrl', url)} />
 
       {/* Coordenadas ocultas */}
       <input type="hidden" {...register('latitude', { required: true })} />

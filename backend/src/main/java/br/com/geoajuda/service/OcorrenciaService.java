@@ -29,11 +29,13 @@ public class OcorrenciaService {
     public PublicaResponse criar(CriarRequest req) {
         Point ponto = GF.createPoint(new Coordinate(req.getLongitude(), req.getLatitude()));
 
+        java.time.LocalDateTime agora = java.time.LocalDateTime.now();
         Ocorrencia o = Ocorrencia.builder()
             .municipio(req.getMunicipio())
             .bairro(req.getBairro())
             .tipo(req.getTipo())
             .nivelRisco(req.getNivelRisco())
+            .status(StatusOcorrencia.PENDENTE)
             .familiasAfetadas(req.getFamiliasAfetadas())
             .pessoasAfetadas(req.getPessoasAfetadas())
             .necessidadePrincipal(req.getNecessidadePrincipal())
@@ -41,6 +43,8 @@ public class OcorrenciaService {
             .localizacao(ponto)
             .fotoUrl(req.getFotoUrl())
             .confiabilidade(0)
+            .criadoEm(agora)
+            .atualizadoEm(agora)
             .build();
 
         o = repo.save(o);
@@ -136,6 +140,7 @@ public class OcorrenciaService {
             .descricao(o.getDescricao())
             .latitude(o.getLocalizacao().getY())
             .longitude(o.getLocalizacao().getX())
+            .fotoUrl(o.getFotoUrl())
             .confiabilidade(o.getConfiabilidade())
             .criadoEm(o.getCriadoEm())
             .build();

@@ -69,6 +69,7 @@ public class OcorrenciaDTO {
         private String descricao;
         private Double latitude;
         private Double longitude;
+        private String fotoUrl;
         private Integer confiabilidade;
         private LocalDateTime criadoEm;
     }

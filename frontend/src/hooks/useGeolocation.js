@@ -45,7 +45,7 @@ export function useGeolocation() {
         {
           enableHighAccuracy: true,
           timeout: 10000,
-          maximumAge: 60000, // cache de 1 min
+          maximumAge: 0, // sempre obter localização atual
         }
       )
     })

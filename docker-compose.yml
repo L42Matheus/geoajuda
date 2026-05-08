@@ -30,6 +30,8 @@ services:
       SPRING_DATASOURCE_USERNAME: geoajuda
       SPRING_DATASOURCE_PASSWORD: geoajuda123
       SPRING_JPA_HIBERNATE_DDL_AUTO: validate
+    volumes:
+      - uploads:/app/uploads
     depends_on:
       postgres:
         condition: service_healthy
@@ -44,3 +46,4 @@ services:
 
 volumes:
   pgdata:
+  uploads:
